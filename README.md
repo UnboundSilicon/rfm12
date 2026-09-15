@@ -115,20 +115,36 @@ This approach allows multiple RFM12 modules to coexist in the same circuit / app
 ```
 
 RFM12_t *radio;
-RFM12_result_t  result;
+RFM12_result_t result;
 
 result = rfm12_get_instance(&radio);
+
 if(result != RFM12_OK)
 {
     handle_error(result);
 }
 
-rfm12_set_spi_transfer16(radio, my_spi_transfer16, &my_spi_context);
-rfm12_reset_config(radio);
-rfm12_set_frequency_hz(radio, 433920000UL);
+result = rfm12_configure_hal(
+    radio,
+    my_spi_transfer16,
+    &my_spi_context
+);
+
+if(result != RFM12_OK)
+{
+    handle_error(result);
+}
+
+rfm12_set_frequency_band(radio, RFM12_BAND_433);
+rfm12_set_frequency(radio, 433920000UL);
 rfm12_set_data_rate(radio, RFM12_DATA_RATE_4800);
-rfm12_apply_to_radio(radio);
-rfm12_write_transmitter_register(radio, data);
+
+result = rfm12_apply_to_radio(radio);
+
+if(result != RFM12_OK)
+{
+    handle_error(result);
+}
 
 ```
 
