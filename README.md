@@ -41,17 +41,26 @@ The application should configure the radio using meaningful functions and data s
 This:
 
 ```c
-rfm12_xfer(0x80D7);
-rfm12_xfer(0xA640);
-rfm12_xfer(0xC647);
+/* Traditional command-word interface */
+WriteCMD(0x80D8);  /* FIFO and TX register enabled,
+                      433 MHz band, 12.5 pF crystal load */
+WriteCMD(0xA640);  /* 434.000 MHz */
+WriteCMD(0xC647);  /* approximately 4,800 bit/s */
 ```
 
 becomes this:
 
 ```c
-rfm12_set_band(radio, RFM12_BAND_433MHZ);
-rfm12_set_frequency(radio, 433920000UL);
-rfm12_set_bitrate(radio, RFM12_DATA_RATE_9600);
+/* Unbound Silicon RFM12 driver */
+rfm12_set_tx_data_register_enable(radio, RFM12_ENABLE);
+rfm12_set_rx_fifo_enable(radio, RFM12_ENABLE);
+rfm12_set_frequency_band(radio, RFM12_BAND_433);
+rfm12_set_xtal_cap(radio, RFM12_XTAL_CAP_12_5PF);
+
+rfm12_set_frequency(radio, 434000000UL);
+rfm12_set_data_rate(radio, RFM12_DATA_RATE_4800);
+
+rfm12_apply_to_radio(radio);
 ```
 
 The result is code that is much easier to read, easier to maintain, and easier to port to new hardware, while still exposing the full functionality of the RFM12 when needed.
