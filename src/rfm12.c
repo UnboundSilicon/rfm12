@@ -1,5 +1,8 @@
 /*
  * -------------------------------------------------------------------------
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ * 
  * rfm12.c
  *
  * RFM12B radio driver implementation.

@@ -1,5 +1,8 @@
 /*
  * -------------------------------------------------------------------------
+ *
+ * SPDX-License-Identifier: BSD-3-Clause
+ *
  * rfm12.h
  *
  * RFM12B radio driver public API.
