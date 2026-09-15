@@ -106,7 +106,7 @@ This allows the same library source code to run on:
 Each radio instance is represented by a context structure.
 
 ```
-rfm12_t *radio;
+RFM12_t *radio;
 ```
 
 The context stores:
@@ -117,7 +117,7 @@ The context stores:
 * Runtime state
 * Driver status information
 
-This approach allows multiple RFM12 modules to coexist in the same circuit / application while keeping the API reentrant and portable.
+This approach allows multiple RFM12 modules to coexist in the same circuit / application while maintaining independent configuration and runtime state for each radio.
 
 ## Radio Instances
 
