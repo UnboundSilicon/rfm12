@@ -71,11 +71,11 @@ The result is code that is much easier to read, easier to maintain, and easier t
 * Portable C implementation
 * Hardware abstraction layer
 * Configurable SPI interface
-* Optional interrupt support
+* Suitable for polling or interrupt-driven applications
+* Byte-level transmit and receive primitives
 * Register and command abstraction
 * Frequency, bitrate, and power configuration helpers
 * FIFO management
-* Packet transmit and receive support
 * Support for multiple radio instances
 * Minimal RAM footprint
 * No dynamic memory allocation
