@@ -119,6 +119,17 @@ The context stores:
 
 This approach allows multiple RFM12 modules to coexist in the same circuit / application while keeping the API reentrant and portable.
 
+## Radio Instances
+
+The driver uses a statically allocated pool and defaults to one radio instance.
+
+To support additional radios, define `RFM12_NUM_RADIOS` when compiling `rfm12.c`:
+
+    cc -DRFM12_NUM_RADIOS=2 -Iinclude -c src/rfm12.c
+
+When all instances have been allocated, `rfm12_get_instance()` returns
+`RFM12_ERROR_NO_INSTANCE_AVAILABLE`.
+
 ## Example Usage
 
 ```
