@@ -182,4 +182,4 @@ Current focus:
 
 ## License
 
-BSD License
+This project is licensed under the BSD 3-Clause License. See [LICENSE](LICENSE) for details.
