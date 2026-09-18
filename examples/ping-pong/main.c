@@ -79,7 +79,7 @@ static void configure_radio(RFM12_t *radio)
      * FFIT after 8 bits = one received byte.
      * In two-byte sync mode the sync sequence is 0x2D,0xD4.
      */
-    rfm12_set_fifo_interrupt_level(radio, (RFM12_fifo_interrupt_level_t)FIFO_INTERRUPT_LEVEL);
+    rfm12_set_fifo_interrupt_level(radio, FIFO_INTERRUPT_LEVEL);
     rfm12_set_sync_pattern_length(radio, RFM12_SYNC_PATTERN_2BYTE);
     rfm12_set_fifo_fill_start(radio, RFM12_FIFO_FILL_AFTER_SYNC);
     rfm12_set_sync_pattern(radio, SYNC_BYTE_2);
@@ -305,7 +305,13 @@ int main(void)
         fatal_rfm12_error(radio_result);
     }
 
-    rfm12_restart_sync_recognition(radio);
+    radio_result = rfm12_restart_sync_recognition(radio);
+    if(radio_result != RFM12_OK)
+    {
+        fatal_rfm12_error(radio_result);
+    }
+
+    platform_start_interrupts();
 
     printf("RFM12 PING/PONG example ready\n");
 
