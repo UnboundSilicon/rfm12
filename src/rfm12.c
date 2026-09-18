@@ -14,7 +14,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 #include <stddef.h>
-#include <stdio.h>
 
 #include "rfm12.h"
 
@@ -2843,45 +2842,6 @@ RFM12_result_t rfm12_read_status(RFM12_t *dev, RFM12_status_word_t *status)
 
     return rfm12_exchange_command(dev, RFM12_CMD_STATUS_READ, status);
 
-}
-
-void rfm12_print_status(RFM12_status_word_t status)
-{
-    typedef struct
-    {
-        uint16_t mask;
-        const char *name;
-    } RFM12_status_flag_t;
-
-    static const RFM12_status_flag_t flags[] =
-    {
-        { (1U << 15), "RGIT/FFIT" },
-        { (1U << 14), "POR"       },
-        { (1U << 13), "RGUR/FFOV" },
-        { (1U << 12), "WKUP"      },
-        { (1U << 11), "EXT"       },
-        { (1U << 10), "LBD"       },
-        { (1U <<  9), "FFEM"      },
-        { (1U <<  8), "ATS"       },
-        { (1U <<  7), "RSSI"      },
-        { (1U <<  6), "DQD"       },
-        { (1U <<  5), "CRL"       },
-        { (1U <<  4), "ATGL"      }
-    };
-
-    size_t index;
-
-    printf("RFM12 Status = 0x%04X\n", status);
-
-    for(index = 0U; index < (sizeof(flags) / sizeof(flags[0])); index++)
-    {
-        printf("  %-10s : %s\n",
-               flags[index].name,
-               ((status & flags[index].mask) != 0U) ? "ON" : "OFF");
-    }
-
-    printf("  AFC Offset : %u\n",
-           (unsigned int)(status & RFM12_STATUS_AFC_OFFSET_MASK));
 }
 
 // 

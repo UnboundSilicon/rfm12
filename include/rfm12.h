@@ -758,7 +758,6 @@ RFM12_result_t rfm12_reset_low_battery_clock(       RFM12_t *dev);
 // 17. Status Read Command
 
 RFM12_result_t rfm12_read_status(RFM12_t *dev, RFM12_status_word_t *status);
-void rfm12_print_status(RFM12_status_word_t status);
 
 //
 // Status Read Helper Functions
