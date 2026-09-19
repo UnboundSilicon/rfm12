@@ -168,17 +168,29 @@ if(result != RFM12_OK)
 
 ```
 
+## Hardware Examples
+
+The [PING/PONG example](examples/ping-pong/README.md) demonstrates radio configuration and button-triggered message exchanges between two RFM12 modules. It shares the same application code across ATmega328P (Arduino Nano) and STM32F103C8 (Blue Pill) targets.
+
 ## Project Status
 
-Work in progress.
+The RFM12 driver is under active development and hardware testing.
 
-Current focus:
+Current functionality includes:
 
-* Core HAL architecture
-* Command abstraction layer
-* Radio initialization
-* Transmit/receive framework
-* Interrupt-driven operation
+* Platform-independent HAL interface
+* Complete radio configuration and command encoding
+* Staged configuration with explicit application to hardware
+* Radio status decoding
+* RX, TX, idle, standby, and sleep mode control
+* FIFO-based receive operation
+* TX register operation
+* Software reset and synchronization control
+* Multiple radio instance support
+* Working hardware-tested PING/PONG communication
+
+Development is currently focused on continued hardware validation, API refinement, testing, and documentation.
+
 
 ## License
 
