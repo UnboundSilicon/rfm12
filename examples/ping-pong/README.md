@@ -15,6 +15,22 @@ The example currently includes implementations for:
 * **ATmega328P** — tested using an Arduino Nano
 * **STM32F103C8** — tested using a Blue Pill
 
+## Platform Interface
+
+`platform.h` defines the small MCU-specific interface required by the shared application. Porting the example to another MCU requires implementing these functions for the target platform:
+
+| Function                        | Purpose                                                                     |
+| ------------------------------- | --------------------------------------------------------------------------- |
+| `platform_initialize()`         | Initializes the MCU peripherals required by the example.                    |
+| `platform_start_interrupts()`   | Enables interrupts after application and radio initialization are complete. |
+| `platform_delay_ms()`           | Provides a blocking millisecond delay.                                      |
+| `platform_button_pressed()`     | Returns a debounced, one-shot button press event.                           |
+| `platform_rfm12_spi_transfer()` | Provides the 16-bit SPI transfer function used by the RFM12 HAL.            |
+
+The platform implementation is also responsible for routing the application's `printf()` output to a serial port.
+
+MCU peripheral configuration, GPIO assignments, and other hardware-specific details remain entirely within the platform implementation.
+
 ## How It Works
 
 At startup, the application initializes the platform and obtains an RFM12 instance using `rfm12_get_instance()`. The platform-specific SPI transfer function is then attached to the instance through the RFM12 HAL. The application configures the radio through the driver API, applies the configuration to the radio, and enters receive mode.
@@ -93,7 +109,7 @@ The transmit sequence follows the guidance in the RFM12 datasheet. The datasheet
 
 The application code is shared between all targets. Each target directory contains only the platform-specific implementation and build configuration required for that MCU.
 
-```text
+```text id="l2dvzh"
 ping-pong/
 ├── README.md
 ├── main.c
