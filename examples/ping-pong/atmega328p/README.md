@@ -26,7 +26,7 @@ The Arduino Nano used by this example operates at 5 V while the RFM12B operates 
 
 The `CS`, `MOSI`, and `SCK` signals each use a resistor voltage divider consisting of **1.0 kΩ (1%)** between the ATmega328P output and the RFM12B input, and **1.8 kΩ (1%)** between the RFM12B input and ground. This reduces a 5 V output to approximately 3.2 V.
 
-```text id="5y1bph"
+```text
 ATmega328P                          RFM12B
 5 V output                         3.3 V input
 
@@ -79,7 +79,7 @@ The Makefile assumes the ATmega328P is running an Arduino-compatible Optiboot bo
 
 From the `atmega328p` directory, build the example with:
 
-```sh id="s72poi"
+```sh
 make
 ```
 
@@ -87,13 +87,13 @@ The resulting ELF and Intel HEX files are written to the `build/` directory.
 
 To flash the Arduino Nano:
 
-```sh id="h3rfxq"
+```sh
 make flash
 ```
 
 Before flashing, verify the programmer and serial port settings near the top of the Makefile:
 
-```make id="ja9gnc"
+```make
 PROGRAMMER = arduino
 PORT       = /dev/tty.usbserial-A900DIO1
 BAUD       = 115200
@@ -103,7 +103,7 @@ The `PORT` value must be changed to match the serial device assigned to the Ardu
 
 To remove generated build files:
 
-```sh id="oud9rw"
+```sh
 make clean
 ```
 
@@ -113,7 +113,7 @@ After flashing the firmware, connect to the Arduino Nano serial port using a ter
 
 Reset or power-cycle the board. After initialization, the example prints the initial RFM12B status followed by:
 
-```text id="aw39ek"
+```text
 RFM12 PING/PONG example ready
 ```
 
