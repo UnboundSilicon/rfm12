@@ -84,7 +84,7 @@ The result is code that is much easier to read, easier to maintain, and easier t
 
 The driver depends only on one user-provided function and an arbitrary context pointer:
 
-```
+```c
 typedef RFM12_result_t (*RFM12_spi_transfer16_fn) (
     void *context, 
     uint16_t  tx_word, 
@@ -105,7 +105,7 @@ This allows the same library source code to run on:
 
 Each radio instance is represented by a context structure.
 
-```
+```c
 RFM12_t *radio;
 ```
 
@@ -132,7 +132,7 @@ When all instances have been allocated, `rfm12_get_instance()` returns
 
 ## Example Usage
 
-```
+```c
 
 RFM12_t *radio;
 RFM12_result_t result;
