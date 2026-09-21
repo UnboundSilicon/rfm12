@@ -4,7 +4,7 @@ This directory contains the STM32F103 platform implementation for the RFM12B PIN
 
 The platform layer provides the STM32F103-specific initialization, SPI communication, timing, button handling, and serial output required by the common example application.
 
-See the [main PING/PONG README](../README.md) for a description of the example and how it operates.
+See the [main PING/PONG README](../) for a description of the example and how it operates.
 
 ## Hardware
 
