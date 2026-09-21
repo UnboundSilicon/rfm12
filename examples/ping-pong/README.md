@@ -12,8 +12,8 @@ The PING/PONG application is hardware-independent and shares the same `main.c` b
 
 The example currently includes implementations for:
 
-* [**ATmega328P**](atmega328p/README.md) — tested using an Arduino Nano
-* [**STM32F103C8**](stm32f103/README.md) — tested using a Blue Pill
+* [**ATmega328P**](atmega328p/) — tested using an Arduino Nano
+* [**STM32F103C8**](stm32f103/) — tested using a Blue Pill
 
 Each target README contains the build instructions, MCU peripheral configuration, pin assignments, and hardware connections for that platform.
 
