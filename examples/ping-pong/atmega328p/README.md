@@ -24,25 +24,13 @@ The RFM12B is connected to the ATmega328P hardware SPI peripheral. The push butt
 
 The Arduino Nano used by this example operates at 5 V while the RFM12B operates at 3.3 V. The 5 V signals from the ATmega328P must therefore be reduced before being connected to the RFM12B.
 
-The `CS`, `MOSI`, and `SCK` signals each use a resistor voltage divider consisting of **1.0 kΩ (1%)** between the ATmega328P output and the RFM12B input, and **1.8 kΩ (1%)** between the RFM12B input and ground. This reduces a 5 V output to approximately 3.2 V.
-
-```text
-ATmega328P                          RFM12B
-5 V output                         3.3 V input
-
-   CS / MOSI / SCK
-         |
-         |
-      [ 1.0 kΩ ]
-         |
-         +------------------------> CS / MOSI / SCK
-         |
-      [ 1.8 kΩ ]
-         |
-        GND
-```
+The `CS`, `MOSI`, and `SCK` signals each use a resistor voltage divider consisting of **1.0 kΩ (1%)** between the ATmega328P output and the RFM12B input, and **1.8 kΩ (1%)** between the RFM12B input and ground. This reduces a 5 V output to approximately 3.3 V.
 
 The same divider is used independently for each of the three signals.
+
+### Schematic
+
+![Arduino Nano RFM12B PING/PONG example schematic](images/nano-schematic.png)
 
 The RFM12B `MISO` output is connected directly to the ATmega328P `MISO` input.
 
