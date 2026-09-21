@@ -22,6 +22,10 @@ The RFM12B is connected to the STM32F103 SPI1 peripheral. Both the STM32F103 and
 
 The push button connects the button input to ground when pressed and uses the STM32F103 internal pull-up resistor.
 
+### Schematic
+
+![STM32F103 Blue Pill RFM12B PING/PONG schematic](images/bluepill-schematic.png)
+
 ### Pin Assignments
 
 | Function    | STM32F103 Pin   | Blue Pill Pin |
