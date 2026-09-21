@@ -33,6 +33,10 @@ The `CS`, `MOSI`, and `SCK` signals each use a resistor voltage divider consisti
 
 ![Arduino Nano RFM12B PING/PONG example schematic](images/nano-schematic.png)
 
+### Breadboard Circuit
+
+![Arduino Nano RFM12B PING/PONG breadboard](images/rfm12-nano-breadboard.jpg)
+
 ### Pin Assignments
 
 | Function     | ATmega328P   | Arduino Nano | RFM12B |

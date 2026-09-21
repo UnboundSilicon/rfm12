@@ -26,6 +26,10 @@ The push button connects the button input to ground when pressed and uses the ST
 
 ![STM32F103 Blue Pill RFM12B PING/PONG schematic](images/bluepill-schematic.png)
 
+### Breadboard
+
+![STM32F103 Blue Pill RFM12B breadboard implementation](images/rfm12-bluepill-breadboard.jpg)
+
 ### Pin Assignments
 
 | Function    | STM32F103 | Blue Pill | RFM12B |
