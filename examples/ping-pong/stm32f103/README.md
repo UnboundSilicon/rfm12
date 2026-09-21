@@ -28,14 +28,15 @@ The push button connects the button input to ground when pressed and uses the ST
 
 ### Pin Assignments
 
-| Function    | STM32F103 Pin   | Blue Pill Pin |
-| ----------- | --------------- | ------------- |
-| RFM12B CS   | PA4             | A4            |
-| RFM12B SCK  | PA5             | A5            |
-| RFM12B MISO | PA6             | A6            |
-| RFM12B MOSI | PA7             | A7            |
-| Push button | PB1             | B1            |
-| UART TX     | PA9 / USART1_TX | A9            |
+| Function    | STM32F103 | Blue Pill | RFM12B |
+| ----------- | --------- | --------- | ------ |
+| SPI CS      | PA4       | A4        | nSEL   |
+| SPI MOSI    | PA7       | A7        | SDI    |
+| SPI MISO    | PA6       | A6        | SDO    |
+| SPI SCK     | PA5       | A5        | SCK    |
+| Push button | PB1       | B1        | —      |
+| UART TX     | PA9 / TX  | A9        | —      |
+
 
 ## Platform Implementation
 
