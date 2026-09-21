@@ -181,7 +181,7 @@ if(result != RFM12_OK)
 
 ## Hardware Examples
 
-The [PING/PONG example](examples/ping-pong/README.md) demonstrates radio configuration and button-triggered message exchanges between two RFM12 modules. It shares the same application code across ATmega328P (Arduino Nano) and STM32F103C8 (Blue Pill) targets.
+The [PING/PONG example](examples/ping-pong/) demonstrates radio configuration and button-triggered message exchanges between two RFM12 modules. It shares the same application code across ATmega328P (Arduino Nano) and STM32F103C8 (Blue Pill) targets.
 
 ## Project Status
 
