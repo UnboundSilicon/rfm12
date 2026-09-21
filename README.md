@@ -90,10 +90,20 @@ typedef RFM12_result_t (*RFM12_spi_transfer16_fn) (
     uint16_t  tx_word, 
     uint16_t *rx_word
 );
-
 ```
 
-This allows the same library source code to run on:
+The `context` pointer allows the application to associate platform-specific SPI information with a particular RFM12 instance. The driver does not interpret this pointer; it simply passes it unchanged to the SPI transfer function.
+
+The application may use the context to identify whatever is required to communicate with that radio, such as:
+
+* Which SPI peripheral to use
+* Which GPIO pin controls the RFM12 chip select
+* Platform-specific SPI or GPIO state
+* A structure containing all hardware information associated with that radio
+
+This allows the same HAL function to support multiple RFM12 modules or different hardware configurations without introducing platform-specific details into the driver itself.
+
+The same library source code can run on:
 
 * AVR ATmega devices
 * STM32 devices
