@@ -91,6 +91,7 @@ typedef RFM12_result_t (*RFM12_spi_transfer16_fn) (
     uint16_t *rx_word
 );
 ```
+The SPI transfer function performs one complete 16-bit SPI transaction with the RFM12. It is responsible for any platform-specific operations required for that transaction, including selecting the RFM12, transferring the 16-bit `tx_word`, capturing the returned 16-bit word into `*rx_word`, and releasing the device.
 
 The `context` pointer allows the application to associate platform-specific SPI information with a particular RFM12 instance. The driver does not interpret this pointer; it simply passes it unchanged to the SPI transfer function.
 
