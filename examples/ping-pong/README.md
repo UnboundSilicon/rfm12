@@ -12,8 +12,10 @@ The PING/PONG application is hardware-independent and shares the same `main.c` b
 
 The example currently includes implementations for:
 
-* **ATmega328P** — tested using an Arduino Nano
-* **STM32F103C8** — tested using a Blue Pill
+* [**ATmega328P**](atmega328p/README.md) — tested using an Arduino Nano
+* [**STM32F103C8**](stm32f103/README.md) — tested using a Blue Pill
+
+Each target README contains the build instructions, MCU peripheral configuration, pin assignments, and hardware connections for that platform.
 
 ## Platform Interface
 
@@ -48,19 +50,19 @@ The example reports initialization and PING/PONG activity through a serial port.
 
 A device initiating a PING will produce output similar to:
 
-```text
-RFM12 PING/PONG example ready
-Sending PING
-Received PONG
-```
+> ```text
+> RFM12 PING/PONG example ready
+> Sending PING
+> Received PONG
+> ```
 
 The responding device will produce:
 
-```text
-RFM12 PING/PONG example ready
-Received PING
-Sending PONG
-```
+> ```text
+> RFM12 PING/PONG example ready
+> Received PING
+> Sending PONG
+> ```
 
 This example intentionally keeps communication simple and does not implement CRC checking, retries, or a response timeout.
 
@@ -109,7 +111,7 @@ The transmit sequence follows the guidance in the RFM12 datasheet. The datasheet
 
 The application code is shared between all targets. Each target directory contains only the platform-specific implementation and build configuration required for that MCU.
 
-```text id="l2dvzh"
+```text
 ping-pong/
 ├── README.md
 ├── main.c
@@ -126,9 +128,3 @@ ping-pong/
 
 `main.c` contains the platform-independent RFM12 configuration and PING/PONG application logic. `platform.h` defines the small interface required by the application, while each `platform.c` implements that interface using the peripherals of its target MCU.
 
-## Building and Hardware Setup
-
-Build instructions, MCU peripheral configuration, pin assignments, and hardware connections are documented separately for each example target:
-
-* [ATmega328P](atmega328p/README.md) — tested using an Arduino Nano
-* [STM32F103C8](stm32f103/README.md) — tested using a Blue Pill
