@@ -35,14 +35,14 @@ The `CS`, `MOSI`, and `SCK` signals each use a resistor voltage divider consisti
 
 ### Pin Assignments
 
-| Function    | ATmega328P Pin | Arduino Nano Pin |
-| ----------- | -------------- | ---------------- |
-| RFM12B CS   | PB2            | D10              |
-| RFM12B MOSI | PB3            | D11              |
-| RFM12B MISO | PB4            | D12              |
-| RFM12B SCK  | PB5            | D13              |
-| Push button | PD2            | D2               |
-| UART TX     | PD1 / TXD      | TX / D1          |
+| Function     | ATmega328P   | Arduino Nano | RFM12B |
+| ------------ | ------------ | ------------ | ------ |
+| SPI CS       | PB2          | D10          | nSEL   |
+| SPI MOSI     | PB3          | D11          | SDI    |
+| SPI MISO     | PB4          | D12          | SDO    |
+| SPI SCK      | PB5          | D13          | SCK    |
+| Push button  | PD2          | D2           | —      |
+| UART TX      | PD1 / TXD    | D1 / TX      | —      |
 
 ## Platform Implementation
 
