@@ -586,7 +586,22 @@ typedef uint16_t RFM12_status_word_t;
 // API Functions
 //
 
+/**
+ * Obtain a statically allocated RFM12 driver instance.
+ *
+ * Each successful call obtains the next available instance from the
+ * compile-time pool of RFM12_NUM_RADIOS instances. The returned instance
+ * remains valid for the lifetime of the program and must not be freed.
+ *
+ * Instances cannot be released or reused. After all instances have been
+ * obtained, the function returns RFM12_ERROR_NO_INSTANCE_AVAILABLE and
+ * sets *instance to NULL.
+ *
+ * This function is intended to be called during application initialization
+ * and is not thread-safe.
+ */
 RFM12_result_t rfm12_get_instance(                  RFM12_t **instance);
+
 RFM12_result_t rfm12_configure_hal(                 RFM12_t *dev, RFM12_spi_transfer16_fn function, void *context);
 RFM12_result_t rfm12_apply_to_radio(                RFM12_t *dev);
 
