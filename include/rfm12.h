@@ -640,6 +640,7 @@ RFM12_result_t rfm12_reset_power_management(          RFM12_t *dev);
 RFM12_result_t rfm12_enter_rx_mode(                   RFM12_t *dev);
 RFM12_result_t rfm12_enter_tx_mode(                   RFM12_t *dev);
 RFM12_result_t rfm12_enter_idle_mode(                 RFM12_t *dev);
+RFM12_result_t rfm12_enter_standby_mode(              RFM12_t *dev);
 RFM12_result_t rfm12_enter_sleep_mode(                RFM12_t *dev);
 
 // 3. Frequency Setting Command

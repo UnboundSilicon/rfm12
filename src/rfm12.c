@@ -1227,6 +1227,7 @@ RFM12_result_t rfm12_reset_power_management(RFM12_t *dev)
 
     dev->power_management = rfm12_power_management_default;
     dev->dirty |= RFM12_DIRTY_POWER_MGMT;
+    dev->mode = RFM12_MODE_UNKNOWN;
 
     return RFM12_OK;
 }
@@ -1317,6 +1318,35 @@ RFM12_result_t rfm12_enter_idle_mode(RFM12_t *dev)
 
     return result;
 
+}
+
+RFM12_result_t rfm12_enter_standby_mode(RFM12_t *dev)
+{
+    RFM12_result_t result;
+    uint16_t command;
+
+    if (dev == NULL)
+    {
+        return RFM12_ERROR_INVALID_HANDLE;
+    }
+
+    dev->power_management.receiver           = RFM12_DISABLE;
+    dev->power_management.baseband           = RFM12_DISABLE;
+    dev->power_management.transmitter        = RFM12_DISABLE;
+    dev->power_management.synthesizer        = RFM12_DISABLE;
+    dev->power_management.crystal_oscillator = RFM12_ENABLE;
+
+    command = rfm12_encode_power_management(dev);
+
+    result = rfm12_send_command(dev, command);
+
+    if(result == RFM12_OK)
+    {
+        dev->dirty &= ~RFM12_DIRTY_POWER_MGMT;
+        dev->mode = RFM12_MODE_STANDBY;
+    }
+
+    return result;
 }
 
 RFM12_result_t rfm12_enter_sleep_mode(RFM12_t *dev)
