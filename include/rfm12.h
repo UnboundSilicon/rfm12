@@ -607,12 +607,31 @@ RFM12_result_t rfm12_get_mode(                const RFM12_t *dev, RFM12_mode_t *
 
 
 /*
- * Configuration setters update the driver's staged configuration and mark
- * the corresponding command as pending. They do not communicate with the
- * radio. Call rfm12_apply_to_radio() to send pending configuration commands.
+ * Configuration setters and command-reset functions update the driver's
+ * staged configuration and mark the corresponding command as pending. They
+ * do not communicate with the radio. Call rfm12_apply_to_radio() to send
+ * pending configuration commands.
  *
- * rfm12_read_status(), rfm12_read_fifo(), rfm12_write_tx_register(), and
- * rfm12_restart_sync_recognition() perform immediate SPI transfers.
+ * The following operations perform immediate SPI transfers:
+ *
+ *   rfm12_apply_to_radio()
+ *   rfm12_software_reset()
+ *   rfm12_enter_standby_mode()
+ *   rfm12_enter_rx_mode()
+ *   rfm12_enter_tx_mode()
+ *   rfm12_enter_idle_mode()
+ *   rfm12_enter_sleep_mode()
+ *   rfm12_restart_sync_recognition()
+ *   rfm12_read_fifo()
+ *   rfm12_write_tx_register()
+ *   rfm12_read_status()
+ *
+ * Mode-entry functions write the complete Power Management Command and
+ * therefore also apply any pending settings belonging to that command.
+ *
+ * rfm12_restart_sync_recognition() writes the complete FIFO and Reset Mode
+ * Command and therefore applies any pending settings belonging to that
+ * command.
  */
 
 // 1. Configuration Setting Command
