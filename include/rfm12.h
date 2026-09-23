@@ -652,7 +652,7 @@ RFM12_result_t rfm12_get_mode(                const RFM12_t *dev, RFM12_mode_t *
 // 1. Configuration Setting Command
 
 RFM12_result_t rfm12_set_tx_data_register_enable(   RFM12_t *dev, RFM12_enable_t enable);
-RFM12_result_t rfm12_set_rx_fifo_enable(            RFM12_t *dev, RFM12_enable_t enable);
+RFM12_result_t rfm12_set_rx_fifo_mode_enable(       RFM12_t *dev, RFM12_enable_t enable);
 RFM12_result_t rfm12_set_frequency_band(            RFM12_t *dev, RFM12_frequency_band_t band);
 RFM12_result_t rfm12_set_xtal_cap(                  RFM12_t *dev, RFM12_xtal_cap_t cap);
 RFM12_result_t rfm12_reset_config_setting(          RFM12_t *dev);
@@ -711,7 +711,7 @@ RFM12_result_t rfm12_reset_data_filter(             RFM12_t *dev);
 RFM12_result_t rfm12_set_fifo_interrupt_level(      RFM12_t *dev, RFM12_fifo_interrupt_level_t level);
 RFM12_result_t rfm12_set_sync_pattern_length(       RFM12_t *dev, RFM12_sync_pattern_length_t length);
 RFM12_result_t rfm12_set_fifo_fill_start(           RFM12_t *dev, RFM12_fifo_fill_start_t mode);
-RFM12_result_t rfm12_set_fifo_enable(               RFM12_t *dev, RFM12_enable_t enable);
+RFM12_result_t rfm12_set_rx_fifo_fill_enable(       RFM12_t *dev, RFM12_enable_t enable);
 RFM12_result_t rfm12_set_reset_mode(                RFM12_t *dev, RFM12_reset_mode_t mode);
 RFM12_result_t rfm12_reset_fifo_reset_mode(         RFM12_t *dev);
 

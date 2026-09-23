@@ -998,7 +998,7 @@ RFM12_result_t rfm12_set_tx_data_register_enable(RFM12_t *dev, RFM12_enable_t en
     return RFM12_OK;
 }
 
-RFM12_result_t rfm12_set_rx_fifo_enable(RFM12_t *dev, RFM12_enable_t enable)
+RFM12_result_t rfm12_set_rx_fifo_mode_enable(RFM12_t *dev, RFM12_enable_t enable)
 {
     if (dev == NULL)
         return RFM12_ERROR_INVALID_HANDLE;
@@ -1994,7 +1994,7 @@ RFM12_result_t rfm12_set_fifo_fill_start(RFM12_t *dev, RFM12_fifo_fill_start_t m
     return RFM12_OK;
 }
 
-RFM12_result_t rfm12_set_fifo_enable(RFM12_t *dev, RFM12_enable_t enable)
+RFM12_result_t rfm12_set_rx_fifo_fill_enable(RFM12_t *dev, RFM12_enable_t enable)
 {
     if (dev == NULL)
     {
