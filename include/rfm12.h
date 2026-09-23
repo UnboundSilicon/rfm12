@@ -430,14 +430,14 @@ typedef enum
 // TX output power (attenuation from maximum output)
 typedef enum
 {
-    RFM12_TX_POWER_0DB        = 0b000,  // Maximum output
-    RFM12_TX_POWER_MINUS_3DB  = 0b001,
-    RFM12_TX_POWER_MINUS_6DB  = 0b010,
-    RFM12_TX_POWER_MINUS_9DB  = 0b011,
-    RFM12_TX_POWER_MINUS_12DB = 0b100,
-    RFM12_TX_POWER_MINUS_15DB = 0b101,
-    RFM12_TX_POWER_MINUS_18DB = 0b110,
-    RFM12_TX_POWER_MINUS_21DB = 0b111
+    RFM12_TX_POWER_0DB          = 0b000,  // Maximum output
+    RFM12_TX_POWER_MINUS_2_5DB  = 0b001,
+    RFM12_TX_POWER_MINUS_5DB    = 0b010,
+    RFM12_TX_POWER_MINUS_7_5DB  = 0b011,
+    RFM12_TX_POWER_MINUS_10DB   = 0b100,
+    RFM12_TX_POWER_MINUS_12_5DB = 0b101,
+    RFM12_TX_POWER_MINUS_15DB   = 0b110,
+    RFM12_TX_POWER_MINUS_17_5DB = 0b111
 
 } RFM12_tx_power_t;
 
