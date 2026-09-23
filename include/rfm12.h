@@ -391,12 +391,12 @@ typedef enum
 
 typedef enum
 {
-    // Logic 0 → Lower frequency
-    // Logic 1 → Higher frequency
-    RFM12_TX_FSK_POLARITY_NORMAL = 0,
-
     // Logic 0 → Higher frequency
     // Logic 1 → Lower frequency
+    RFM12_TX_FSK_POLARITY_NORMAL = 0,
+
+    // Logic 0 → Lower frequency
+    // Logic 1 → Higher frequency
     RFM12_TX_FSK_POLARITY_INVERTED = 1
 
 } RFM12_tx_fsk_polarity_t;
