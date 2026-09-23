@@ -309,6 +309,7 @@ typedef enum
 #pragma region FIFO and Reset Mode Command
 
 // Bits: [7:4] (f3..f0)
+/* Receiver FIFO interrupt level: 1..15 */
 typedef uint8_t RFM12_fifo_interrupt_level_t;
 
 // Bits: [3] (sp)
@@ -488,7 +489,10 @@ typedef enum
 
 #pragma region Wake-Up Timer Command
 
+/* Wake-up timer prescaler R: 0..31 */
 typedef uint8_t RFM12_wakeup_prescaler_t;
+
+/* Wake-up timer multiplier M: 0..255 */
 typedef uint8_t RFM12_wakeup_multiplier_t;
 
 #pragma endregion
@@ -502,6 +506,7 @@ typedef uint8_t RFM12_wakeup_multiplier_t;
 #pragma region Low Duty-Cycle Command
 
 // Bits: [7:1] (d6:d0)
+/* Low-duty-cycle D field: 0..127 */
 typedef uint8_t RFM12_low_duty_cycle_d_t;
 
 #pragma endregion
